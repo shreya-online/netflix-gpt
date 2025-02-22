@@ -20,11 +20,14 @@ const Login = () =>{
 
             {/* mx-auto right-0 left-0 -> keeps the sign in block in the centre */}
             <form className="w-3/12 absolute p-12 bg-black bg-opacity-80 my-36 mx-auto right-0 left-0">
-                <h1 className="font-bold text-white text-2xl my-4">{!isSignIn?"Sign In": "Sign Up"}</h1>
+                <h1 className="font-bold text-white text-2xl my-4">{isSignIn?"Sign In": "Sign Up"}</h1>
+                {!isSignIn && 
+                     <input type="text" placeholder="Enter your name" className="p-4 my-2 w-full bg-black border border-gray-500 rounded"/>
+                }
                 <input type="text" placeholder="Enter your Email" className="p-4 my-2 w-full bg-black border border-gray-500 rounded"/>
                 <input type="password" placeholder="Password" className="p-4 my-2 w-full bg-black border border-gray-500 rounded"/>
-                <button className="p-2 my-2 text-white bg-red-600 w-full rounded">{!isSignIn?"Sign In": "Sign Up"}</button>
-                <p className="text-white cursor-pointer" onClick={toggleSignIn}> {isSignIn?"Already an user? Sign In": "New to Netflix? Sign Up"}! </p>
+                <button className="p-2 my-2 text-white bg-red-600 w-full rounded">{isSignIn?"Sign In": "Sign Up"}</button>
+                <p className="text-white cursor-pointer" onClick={toggleSignIn}> {isSignIn? "New to Netflix? Sign Up" : "Already an user? Sign In"}! </p>
                 <br></br>
                 <p className="text-gray-400">This page is protected by reCAPTCHA to ensure you're not a bot. Learn more.</p>
             </form>
